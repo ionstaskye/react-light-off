@@ -55,7 +55,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   }
   
   function hasWon() {
-    // TODO: check the board in state to determine whether the player has won.
+    return board.every(row => row.every(cell => !cell))
   }
 
   function flipCellsAround(coord) {
@@ -82,9 +82,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
     });
   }
 
-  // if the game is won, just show a winning msg & render nothing else
-
-  // TODO
+  if (hasWon()){
+    return <div>You Win!</div>
+  }
 
   let tblBoard = [];
 
